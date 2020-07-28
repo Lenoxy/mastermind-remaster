@@ -27,21 +27,25 @@ public class Controller{
     }
 
     public Solution compare(List<String> userInput){
+        ArrayList<Integer> alreadyProcessed = new ArrayList<Integer>();
         if(userInput.size() != 4){
             return null;
         }
         Solution s = new Solution();
-        int userIndex = 0;
-        for(String userColor : userInput){
-            if(userColor.equals(combination.get(userIndex))){
+        for (int i = 0; i < 4; i++)
+            if (userInput.get(i).equals(combination.get(i))){
                 s.positionsCorrect++;
-            }else{
-                if(combination.contains(userColor)){
-                    s.colorsCorrect++;
-                }
+                alreadyProcessed.add(i);
             }
-            userIndex++;
-        }
+
+        for (String color : combination)
+            for (int j = 0; j < 4; j++)
+                if (color.equals(userInput.get(j)) && !alreadyProcessed.contains(j))
+                {
+                    alreadyProcessed.add(j);
+                    s.colorsCorrect++;
+                    break;
+                }
         return s;
 
     }
@@ -80,16 +84,4 @@ public class Controller{
     private boolean validate(String s){
         return colors.contains(s);
     }
-
-    private int getIdForString(String color){
-        Integer matchingValue = null;
-        for(int i = 0; i < colors.size(); i++){
-            if(colors.get(i) == color){
-                matchingValue = i;
-            }
-        }
-        return matchingValue;
-    }
-
-
 }

@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface{
@@ -6,7 +5,6 @@ public class UserInterface{
 
     public UserInterface(){
         System.out.println("Welcome bla bla");
-
     }
 
     public void printInfo(Solution s){
