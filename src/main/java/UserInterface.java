@@ -20,7 +20,7 @@ public class UserInterface{
     public boolean getRestart(boolean won){
         if(won){
             System.out.println("Congratulations! You've figured out the combination");
-        }else{
+        }else {
             System.out.println("You couldn't figure out the combination. Try again!");
         }
 

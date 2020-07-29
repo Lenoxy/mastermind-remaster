@@ -31,23 +31,23 @@ public class Controller{
         if(userInput.size() != 4){
             return null;
         }
+
         Solution s = new Solution();
-        for (int i = 0; i < 4; i++)
-            if (userInput.get(i).equals(combination.get(i))){
+
+        for(int i = 0; i < 4; i++)
+            if(userInput.get(i).equals(combination.get(i))){
                 s.positionsCorrect++;
                 alreadyProcessed.add(i);
             }
 
-        for (String color : combination)
-            for (int j = 0; j < 4; j++)
-                if (color.equals(userInput.get(j)) && !alreadyProcessed.contains(j))
-                {
+        for(String color : combination)
+            for(int j = 0; j < 4; j++)
+                if(color.equals(userInput.get(j)) && ! alreadyProcessed.contains(j)){
                     alreadyProcessed.add(j);
                     s.colorsCorrect++;
                     break;
                 }
         return s;
-
     }
 
     public boolean play(){
@@ -59,7 +59,7 @@ public class Controller{
             Solution s = compare(userConfig);
             if(s.positionsCorrect == 4){
                 return ui.getRestart(true);
-            }else{
+            }else {
                 ui.printInfo(s);
             }
 
@@ -73,7 +73,7 @@ public class Controller{
             userInput = ui.getColor(pin + 1, round + 1);
             if(validate(userInput)){
                 break;
-            }else{
+            }else {
                 ui.displayNotValid();
             }
         }

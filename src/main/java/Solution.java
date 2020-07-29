@@ -1,5 +1,6 @@
 public class Solution{
-    public Solution(){}
+    public Solution(){
+    }
 
     public Solution(int colorsCorrect, int positionsCorrect){
         this.colorsCorrect = colorsCorrect;
